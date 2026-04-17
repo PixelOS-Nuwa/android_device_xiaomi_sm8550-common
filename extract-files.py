@@ -82,6 +82,11 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace(r'\s*<fqname>@1\.0::IComponentStore/dolby</fqname>', '')
         .regex_replace('.+DOLBY.+\n', ''),
     (
+       'vendor/etc/media_codecs_kalama.xml',
+       'vendor/etc/media_codecs_kalama_vendor_without_dvenc.xml',       
+    ): blob_fixup()
+        .regex_replace('.+media_codecs_(google_audio|google_c2|google_telephony|vendor_audio).+\n', ''),
+    (
         'vendor/lib64/libdpps.so',
         'vendor/lib64/libsnapdragoncolor-manager.so'
     ): blob_fixup()
